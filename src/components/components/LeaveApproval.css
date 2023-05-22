@@ -1,0 +1,21 @@
+.ttable {
+    
+    width: 70%;
+    border: 1px solid;
+    margin-left: 9cm;
+    margin-top: 2cm;
+
+  }
+  
+  .ttable th {
+    height: 50px;
+    padding: 15px;
+    border: 1px solid;
+    background-color: burlywood;
+    color: white;
+  }
+  .ttable td{
+    text-align: center;
+    padding: 15px;
+    border: 1px solid;
+  }

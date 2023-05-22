@@ -1,0 +1,54 @@
+.leave-application {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 100pc;
+    
+  }
+  
+  .leave-application h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  
+  }
+  
+  .leave-application form {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    
+  }
+  
+  .leave-application .form-group {
+    margin-bottom: 10px;
+    
+  }
+  
+  .leave-application label {
+    font-weight: bold;
+    margin-left: 15cm;
+  }
+  
+  .leave-application input,
+  .leave-application textarea {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+    
+  }
+  
+  .leave-application button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 15%;
+    margin-left: 15cm;
+
+  }

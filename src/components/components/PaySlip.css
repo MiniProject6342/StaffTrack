@@ -1,0 +1,32 @@
+
+.pay-slip {
+    background-color: whitesmoke;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 50px;
+    width: 400px;
+    margin-top: 5cm;
+    margin-left: 15cm;
+    font-family: Arial, sans-serif;
+  }
+  
+  .pay-slip h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pay-slip-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+  }
+  
+  .pay-slip-content > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+ .llabel {
+    font-weight: bold;
+    margin-right: 10px;
+  }

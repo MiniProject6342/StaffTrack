@@ -1,0 +1,24 @@
+Nav{
+    background-color: grey;
+    padding:16px ;
+    text-align: center;
+}
+.btn{
+    background-color: blue;
+    text-align: center;
+    padding: 10px;
+    margin-left: 40px;
+    text-decoration: none;
+}
+.btn:hover{
+    border:2px solid blue;
+}
+.ln:hover{
+    color: black;
+}
+.ln{
+    color: black;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
