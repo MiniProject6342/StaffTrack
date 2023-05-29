@@ -17,6 +17,9 @@ function LeaveEmp() {
   const [endDate, setEndDate] = useState('');
   const [status, setStatus] = useState('pending');
   let empemail = useParams();
+  const[noofdays,setNoOfDays]=useState('');
+  const[available,setAvailable]=useState('15');
+  const[availed,setAvailed]=useState('0');
   const navigate = useNavigate();
   const handleSubmit1 = async (event) => {
     navigate('/EmpDashboard/' + empemail.id);
@@ -33,7 +36,13 @@ function LeaveEmp() {
   useEffect(() => {
     fetchLeaves();
   }, []);
-
+  async function Load() {
+    console.log(empemail)
+    const result=await axios.get("http://localhost:8088/api/v1/employee/login/"+empemail.id)
+    console.log(result.data);
+    setEmpId(result.data.employeeid);
+  }
+  Load();
   const fetchLeaves = async () => {
     try {
       const response = await axios.get('http://localhost:8088/api/v1/leaves/getall');
@@ -46,12 +55,20 @@ function LeaveEmp() {
 
   const submitLeave = async (e) => {
     e.preventDefault();
+    var date1 = new Date(startDate);  
+    var date2 = new Date(endDate);  
+    var time_difference = date2.getTime() - date1.getTime();     
+    var res= (time_difference / (1000 * 60 * 60 * 24));   
+    setNoOfDays(res);
     try {
       await axios.post('http://localhost:8088/api/v1/leaves/save', {
         empid,
         reason,
         startDate,
         endDate,
+        available,
+        availed,
+        noofdays,
         status,
       });
       alert("leave applied");
@@ -99,51 +116,46 @@ function LeaveEmp() {
               </div>
               <div className='leave-application'>
                 <h1>Leave Application</h1>
-                <form >
-                  <label>
-                    EmpId:
-                    <input
-                      type="text"
-                      value={empid}
-                      onChange={(e) => setEmpId(e.target.value)}
-                    />
-                  </label>
-                  <br />
+                <form>
                   <label>
                     Reason:
+                    </label>
                     <input
                       type="text"
                       value={reason}
                       onChange={(e) => setReason(e.target.value)}
                     />
-                  </label>
+                  {/* </label> */}
                   <br />
                   <label>
                     Start Date:
+                    </label>
                     <input
                       type="date"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                     />
-                  </label>
+                  {/* </label> */}
                   <br />
                   <label>
                     End Date:
+                    </label>
                     <input
                       type="date"
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
                     />
-                  </label>
+                  {/* </label> */}
                   <br />
                   <label>
                     Status:
+                    </label>
                     <input
                       type="text"
                       value={status}
                       onChange={(e) => setStatus(e.target.value)}
                     />
-                  </label>
+                  {/* </label> */}
                   <br />
                   <button onClick={submitLeave}>Submit</button>
                 </form>
